@@ -1,0 +1,47 @@
+<form #testForm="ngForm" (ngSubmit)="onTestSubmit()">
+  <mat-card *ngFor="let q of currentTest['questions']; let i = index">
+    <mat-card-header
+      ><b>{{ i + 1 }}) &nbsp; {{ q.title }}</b></mat-card-header
+    >
+    <hr />
+    <mat-radio-group [disabled]="testService.hasTestEnded">
+      <mat-card-content>
+        <mat-radio-button ngDefaultControl value="1" name="{{ i + 1 }}" ngModel>
+          <div>{{ q.a }}</div>
+        </mat-radio-button>
+      </mat-card-content>
+      <mat-card-content>
+        <mat-radio-button ngDefaultControl value="2" name="{{ i + 1 }}" ngModel>
+          <div>{{ q.b }}</div>
+        </mat-radio-button>
+      </mat-card-content>
+      <mat-card-content>
+        <mat-radio-button ngDefaultControl value="3" name="{{ i + 1 }}" ngModel>
+          <div>{{ q.c }}</div>
+        </mat-radio-button>
+      </mat-card-content>
+      <mat-card-content>
+        <mat-radio-button ngDefaultControl value="4" name="{{ i + 1 }}" ngModel>
+          <div>{{ q.d }}</div>
+        </mat-radio-button>
+      </mat-card-content>
+      <mat-card-content *ngIf="testService.hasTestEnded">
+        <b
+          [ngStyle]="{
+            color:
+              +testService.userAttemptedTest?.value[i + 1] ===
+              currentTest.questions[i].correct
+                ? 'green'
+                : 'red'
+          }"
+          >Correct Option: {{ q.correct }}</b
+        >
+      </mat-card-content>
+    </mat-radio-group>
+  </mat-card>
+  <div class="container">
+    <button [disabled]="testService.hasTestEnded" mat-stroked-button>
+      Submit test
+    </button>
+  </div>
+</form>
