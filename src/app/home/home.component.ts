@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   showSpinner: boolean = false
   showDeleteSpinner: boolean = false
   testToDelete: number = 0
+  noTests: boolean = false
 
   constructor(
     public authService: AuthService,
@@ -47,6 +48,7 @@ export class HomeComponent implements OnInit {
       .add(() => {
         this.showSpinner = false;
       });
+      if (!this.loadedTests.length) this.noTests = true
   }
 
   onTestDelete(id: number) {
