@@ -1,5 +1,12 @@
 # Frontend
-Live: https://exam-system-mean.web.app/
+
+The frontend is developed using Angular
+
+Frontend is hosted on firebase: https://exam-system-mean.web.app/
+
+Backend is hosted on render: https://mock-exam-system-mean-backend.onrender.com
+
+Backend repository: https://github.com/ashishkaparwan17/mock-exam-system-mean-backend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
 
